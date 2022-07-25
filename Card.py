@@ -1,20 +1,33 @@
 from typing import List
+import random
 
 
 class Card:
+    decks = []
 
     def __init__(self, marks: str, nos: str):
         self.marks = marks
         self.nos = nos
 
-    # カードを格納する
+    # デッキを作成する
     def create_decks(self) -> List[str]:
-        decks = []
         for mark in self.marks:
             for no in self.nos:
                 message = f'{mark}の{no}'
-                decks.append(message)
-        return decks
+                Card.decks.append(message)
+        return self.decks
+
+    # デッキからカードを引く
+    def draw_card(self) -> str:
+        # 乱数を生成
+        r = random.randint(0, 52)
+        # カードを生成
+        decks = self.create_decks()
+        # カードを引く
+        drawn_card = decks[r]
+        # 引いたカードを削除
+        Card.decks.remove(drawn_card)
+        return drawn_card
 
 
 # nos = [str(i) for i in range(1, 14)]

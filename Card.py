@@ -3,9 +3,12 @@ import random
 
 
 class Card:
+
     decks = []
 
-    def __init__(self, marks: str, nos: str):
+    nos = [i for i in range(1,14)]
+    marks = ["ハート", "スペード", "ダイヤ", "クラブ"]
+    def __init__(self, nos: List[int] = nos, marks: List[str] = marks) -> None:
         self.marks = marks
         self.nos = nos
 

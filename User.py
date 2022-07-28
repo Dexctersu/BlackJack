@@ -7,7 +7,7 @@ class User(PlayerBase):
 
     # ユーザーが引いたカードの合計点を計算する
 
-    def calculate_total_score(self, drawn_card):
+    def calculate_total_score(self, drawn_card: List[str]):
         # ユーザーが引いたカードの合計点
         total_score = 0
         # ユーザーが引いたカードの枚数
@@ -16,7 +16,7 @@ class User(PlayerBase):
             total_score += int(drawn_card[i])
         return total_score
 
-    def draw_card(self, card, user_score) -> str:
+    def draw_card(self, card: object, user_score: List[str]) -> str:
         error_message = ""
         while True:
             # 引いたカードを出力

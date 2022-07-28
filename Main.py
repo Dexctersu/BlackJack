@@ -1,22 +1,25 @@
-from os import remove
-import random
+import imp
 import Card
+from User import User
 
 
 def main():
 
     print("ゲームを開始します")
-    nos = [str(i) for i in range(1, 14)]
 
-    nos[0] = "A"
-    nos[10] = "J"
-    nos[11] = "Q"
-    nos[12] = "K"
-    c = Card.Card(["ハート", "スペード", "ダイヤ", "クラブ"], nos)
+    user = User()
+    card = Card.Card()
     # 引いたカードを出力
-    print(f'あなたの引いたカードは{c.draw_card()}です')
-    print(f'あなたの引いたカードは{c.draw_card()}です')
-    print(f'残りのカードは{c.decks}')
+    user_score = []
+    for _ in range(2):
+        drawn_card = card.draw_card()
+        user_score.append(drawn_card.split("の")[1])
+        print(f'あなたの引いたカードは{drawn_card}です')
+    print(f'ディーラーの引いたカードは{card.draw_card()}です')
+    print(f'ディーラーの2枚目のカードは分かりません')
+    print(f'あなたの現在の得点は{user.calculate_total_score(user_score)}です')
+    print(user.draw_card(card, user_score))
+    # print(f'残りの山札は{c.decks}')
 
 
 if __name__ == '__main__':

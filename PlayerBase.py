@@ -8,7 +8,3 @@ class PlayerBase:
         self.hand = hand
         self.score = score
 
-    @abstractclassmethod
-    def draw_card(self):
-        pass
-

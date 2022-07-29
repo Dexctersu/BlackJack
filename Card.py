@@ -23,7 +23,7 @@ class Card:
     # デッキからカードを引く
     def draw_card(self) -> str:
         # 乱数を生成
-        r = random.randint(0, 52)
+        r = random.randint(0, 51)
         # カードを生成
         decks = self.create_decks()
         # カードを引く

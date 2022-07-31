@@ -1,45 +1,28 @@
+from multiprocessing.sharedctypes import Value
+from pickletools import markobject
 from typing import List
 import random
 
 
 class Card:
 
-    decks = []
+    def __init__(self, mark, no) -> None:
+        def convert(number: int) -> str:
+            if number == 1:
+                return "A"
+            if number == 11:
+                return "J"
+            if number == 12:
+                return "Q"
+            if number == 13:
+                return "K"
+            return str(number)
 
-    nos = [i for i in range(1,14)]
-    marks = ["ハート", "スペード", "ダイヤ", "クラブ"]
-    def __init__(self, nos: List[int] = nos, marks: List[str] = marks) -> None:
-        self.marks = marks
-        self.nos = nos
-
-    # デッキを作成する
-    def create_decks(self) -> List[str]:
-        for mark in self.marks:
-            for no in self.nos:
-                message = f'{mark}の{no}'
-                Card.decks.append(message)
-        return self.decks
-
-    # デッキからカードを引く
-    def draw_card(self) -> str:
-        # 乱数を生成
-        r = random.randint(0, 51)
-        # カードを生成
-        decks = self.create_decks()
-        # カードを引く
-        drawn_card = decks[r]
-        # 引いたカードを削除
-        Card.decks.remove(drawn_card)
-        return drawn_card
+        if not(1 <= no <= 13):
+            raise ValueError
+        self.mark = mark
+        self.no = no
+        self.card_name = f"{mark}の{convert(no)}"
 
 
-# nos = [str(i) for i in range(1, 14)]
-# nos[0] = "A"
-# nos[10] = "J"
-# nos[11] = "Q"
-# nos[12] = "K"
-# c = Card(["ハート", "スペード", "ダイヤ", "クラブ"], nos)
 
-# print(c.marks)
-# print(c.nos)
-# print(c.create_decks())

@@ -4,15 +4,19 @@ from typing import List
 
 class PlayerBase:
 
-    def __init__(self, hand: List[str] = [], score: int = 0) -> None:
+    def __init__(self, hand: List[object] = None):
+        if hand is None:
+            hand = list()
         self.hand = hand
-        self.score = score
 
-    def calculate_total_score(self, drawn_card: List[str]):
-        # ユーザーが引いたカードの合計点
+    def calculate_total_score(self) -> int:
+        """_summary_
+        引いたカードの合計点を計算する
+
+        Returns:
+            _type_: _description_
+        """
         total_score = 0
-        # ユーザーが引いたカードの枚数
-        n = len(drawn_card)
-        for i in range(n):
-            total_score += int(drawn_card[i])
+        for i in self.hand:
+            total_score += i.no
         return total_score

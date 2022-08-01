@@ -20,3 +20,9 @@ class PlayerBase:
         for i in self.hand:
             total_score += i.no
         return total_score
+
+    def is_burst(self) -> bool:
+        total_score = self.calculate_total_score()
+        if 21 < total_score:
+            return True
+        return False

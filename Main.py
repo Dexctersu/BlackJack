@@ -49,7 +49,11 @@ def main():
     while dealer.calculate_total_score() < 17:
         dealer.hand.append(deck.draw("ディーラー"))
 
-    if dealer.is_burst() or abs(21-user.calculate_total_score())< abs(21-dealer.calculate_total_score()):
+    #ユーザーとディーラーの合計点
+    print(f"あなたの得点は{user.calculate_total_score()}です。")
+    print(f"ディーラーの得点は{dealer.calculate_total_score()}です")
+
+    if dealer.is_burst() or abs(21-user.calculate_total_score()) < abs(21-dealer.calculate_total_score()):
         print("あなたの勝ちです")
     elif user.calculate_total_score() == dealer.calculate_total_score():
         print("引き分けです")
@@ -57,6 +61,7 @@ def main():
         print("ディーラーの勝ちです")
 
     print("ブラックジャック終了")
+
 
 if __name__ == '__main__':
     main()

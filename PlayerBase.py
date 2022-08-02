@@ -22,6 +22,11 @@ class PlayerBase:
         return total_score
 
     def is_burst(self) -> bool:
+        """_summary_
+            引いたカードの合計が21を超えたかを判定する
+        Returns:
+            bool: _description_ True:21より大きい False:21以下
+        """
         total_score = self.calculate_total_score()
         if 21 < total_score:
             return True

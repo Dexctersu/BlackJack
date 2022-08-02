@@ -11,6 +11,16 @@ class Deck:
         return self.cards
 
     def draw(self,role:str,hide:bool=False) -> List[str]:
+        """_summary_
+        カードを引いて、カード名を表示する
+
+        Args:
+            role (str): _description_ プレイヤー名
+            hide (bool, optional): _description_. Defaults to False. カードの値を表示するか? true:非表示 false:表示
+
+        Returns:
+            List[str]: _description_
+        """
         card = self._initialize()
         r = random.randint(0, 51)
         drawn_card=card[r]

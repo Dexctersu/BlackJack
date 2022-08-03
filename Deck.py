@@ -10,7 +10,7 @@ class Deck:
         self.cards = [Card(marks[i % 4], i % 13+1) for i in range(52)]
         return self.cards
 
-    def draw(self,role:str,hide:bool=False) -> List[str]:
+    def draw(self, role: str, hide: bool = False) -> List[str]:
         """_summary_
         カードを引いて、カード名を表示する
 
@@ -23,12 +23,12 @@ class Deck:
         """
         card = self._initialize()
         r = random.randint(0, 51)
-        drawn_card=card[r]
-        while(True):
+        drawn_card = card[r]
+        while True:
             if(not(drawn_card.used)):
-                drawn_card.used=True
+                drawn_card.used = True
 
-                if(hide):
+                if hide:
                     print(f"{role}の引いたカードは分かりません")
                 else:
                     print(f"{role}の引いたカードは{drawn_card.card_name}です")

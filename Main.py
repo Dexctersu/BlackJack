@@ -1,7 +1,6 @@
 import Card
 from Deck import Deck
 from User import User
-from Dealer import Dealer
 
 
 def main():
@@ -9,7 +8,7 @@ def main():
     print("ゲームを開始します")
 
     user = User()
-    dealer = Dealer()
+    dealer = User()
     deck = Deck()
 
     # プレイヤーが最初のカードを2枚引く
@@ -49,7 +48,7 @@ def main():
     while dealer.calculate_total_score() < 17:
         dealer.hand.append(deck.draw("ディーラー"))
 
-    #ユーザーとディーラーの合計点
+    # ユーザーとディーラーの合計点
     print(f"あなたの得点は{user.calculate_total_score()}です。")
     print(f"ディーラーの得点は{dealer.calculate_total_score()}です")
 

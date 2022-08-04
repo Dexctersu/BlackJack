@@ -22,7 +22,7 @@ def main():
     print(f"あなたの現在の得点は{user.calculate_total_score()}です")
 
     # ユーザーのターン
-    while(True):
+    while True:
         print("カードを引きますか? 引く場合はYを、引かない場合はNを入力してください。")
         s = input()
         if(s == "Y" or s == "y"):
